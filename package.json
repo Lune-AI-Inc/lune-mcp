@@ -1,0 +1,53 @@
+{
+  "name": "@lune-inc/lune-mcp",
+  "version": "1.0.0",
+  "homepage": "https://github.com/lune-inc/lune-mcp",
+  "description": "A Model Context Protocol (MCP) server for Lune that provides up-to-date technical context",
+  "bin": {
+    "lune-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist/index.js",
+    "LICENSE",
+    "README.md",
+    "VERSION",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('dist/index.js', '755')\"",
+    "clean": "rm -rf dist",
+    "start": "ts-node src/index.ts",
+    "lint": "eslint \"./**/*.ts*\"",
+    "prettier": "prettier './**/*.{js,ts,md,html,css}' --write",
+    "prettier-check": "prettier './**/*.{js,ts,md,html,css}' --check",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.4.1",
+    "colors": "^1.4.0",
+    "express": "^4.18.2",
+    "zod": "^3.22.4"
+  },
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "lune",
+    "context"
+  ],
+  "author": "Lune <support@trylune.ai>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.13.4",
+    "@typescript-eslint/eslint-plugin": "^8.24.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "prettier": "^3.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
