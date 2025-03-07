@@ -10,13 +10,13 @@ To run a Lune MCP server using npx, first go to the [Lunes](https://www.lune.dev
 
 ```bash
 # Replace YOUR_LUNE_API_KEY with your actual Lune API key
-npx -y @lune/mcp --api-key=YOUR_LUNE_API_KEY --lune-name=LUNE_NAME --lune-id=LUNE_ID
+npx -y @lune-inc/mcp --api-key=YOUR_LUNE_API_KEY --lune-name=LUNE_NAME --lune-id=LUNE_ID
 ```
 
 Example with the Lune on Model Context Protocol Docs, check out the Lune here: [https://www.lune.dev/lunes/v-model-context-protocol-mcp](https://www.lune.dev/lunes/v-model-context-protocol-mcp):
 
 ```bash
-npx -y @lune/mcp --api-key=YOUR_LUNE_API_KEY --lune-name=MCP --lune-id=c2d40d37-9432-44e4-bc78-88b3e251bde1
+npx -y @lune-inc/mcp --api-key=YOUR_LUNE_API_KEY --lune-name=MCP --lune-id=c2d40d37-9432-44e4-bc78-88b3e251bde1
 ```
 
 
@@ -29,7 +29,7 @@ The Lune MCP server supports two transport methods:
 This is the default transport method and is used when no transport is specified:
 
 ```bash
-npx -y @lune/mcp --api-key=YOUR_LUNE_API_KEY --lune-name=LUNE_NAME --lune-id=LUNE_ID
+npx -y @lune-inc/mcp --api-key=YOUR_LUNE_API_KEY --lune-name=LUNE_NAME --lune-id=LUNE_ID
 ```
 
 ### 2. Server-Sent Events (SSE)
@@ -37,7 +37,7 @@ npx -y @lune/mcp --api-key=YOUR_LUNE_API_KEY --lune-name=LUNE_NAME --lune-id=LUN
 To use SSE transport, specify the `--transport=sse` flag and optionally a port (default is 3000):
 
 ```bash
-npx -y @lune/mcp --api-key=YOUR_LUNE_API_KEY --lune-name=LUNE_NAME --lune-id=LUNE_ID --transport=sse --port=3000
+npx -y @lune-inc/mcp --api-key=YOUR_LUNE_API_KEY --lune-name=LUNE_NAME --lune-id=LUNE_ID --transport=sse --port=3000
 ```
 
 When using SSE transport:
@@ -57,7 +57,7 @@ Name: `lune-[LUNE_NAME]-mcp`
 Type: `command`
 
 ```bash
-npx -y @lune/mcp --api-key=YOUR_LUNE_API_KEY --lune-name=LUNE_NAME --lune-id=LUNE_ID
+npx -y @lune-inc/mcp --api-key=YOUR_LUNE_API_KEY --lune-name=LUNE_NAME --lune-id=LUNE_ID
 ```
 (Going to [https://www.lune.dev/lunes](https://www.lune.dev/lunes) and clicking "Use MCP" will copy this command to your clipboard)
 
@@ -71,6 +71,13 @@ Run the previous instructions for SSE mode, and then put in the following:
 
 `http://localhost:3000/sse`
 
+
+#### Prompt Examples for Cursor Agent 
+
+```
+Using the lune-stripe-documentation-mcp server, use the lookup_context_for_stripe_documentation tool to get accurate context on how to implement usage based billing meters and implement it into my code
+```
+
 ### Usage with Claude Desktop
 
 Add the following to your `claude_desktop_config.json`. See [here](https://modelcontextprotocol.io/quickstart/user) for more details.
@@ -82,7 +89,7 @@ Add the following to your `claude_desktop_config.json`. See [here](https://model
             "command": "npx",
             "args": [
                 "-y",
-                "@lune/mcp",
+                "@lune-inc/mcp",
                 "--api-key=LUNE_API_KEY",
                 "--lune-name=LUNE_NAME",
                 "--lune-id=LUNE_ID"

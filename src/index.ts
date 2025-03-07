@@ -21,7 +21,7 @@ let lune_name: string;
 let lune_id: string;
 
 // Helper function for making Lune API requests
-async function makeLuneRequest(query: string, luneId: string, apiKey: string): Promise<{ content: string } | null> {
+async function makeLuneRequest(query: string, luneId: string, apiKey: string): Promise<{ content: string; statusCode?: number } | null> {
   const url = `${LUNE_API_BASE}/chat/get_chunks_from_lunes`;
   const headers = {
     "User-Agent": USER_AGENT,
@@ -37,7 +37,7 @@ async function makeLuneRequest(query: string, luneId: string, apiKey: string): P
     });
     
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status} - ${await response.text()}`);
+      return { content: "", statusCode: response.status };
     }
     
     const data = await response.json();
@@ -163,6 +163,28 @@ async function main() {
               {
                 type: "text",
                 text: "Failed to retrieve context from Lune API",
+              },
+            ],
+          };
+        }
+        
+        if (result.statusCode === 402) {
+          return {
+            content: [
+              {
+                type: "text",
+                text: "Error, you have exceeded your free quota. Please upgrade to a paid plan at https://www.lune.dev/profile/plan for more MCP requests.",
+              },
+            ],
+          };
+        }
+        
+        if (result.statusCode) {
+          return {
+            content: [
+              {
+                type: "text",
+                text: `Failed to retrieve context from Lune API: HTTP error ${result.statusCode}`,
               },
             ],
           };
