@@ -1,8 +1,12 @@
 {
-  "name": "@lune-inc/lune-mcp",
-  "version": "1.0.0",
-  "homepage": "https://github.com/lune-inc/lune-mcp",
+  "name": "@lune-inc/mcp",
+  "version": "1.1.1",
+  "homepage": "https://www.lune.dev",
   "description": "A Model Context Protocol (MCP) server for Lune that provides up-to-date technical context",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lune-AI-Inc/lune-mcp"
+  },
   "bin": {
     "lune-mcp": "dist/index.js"
   },
